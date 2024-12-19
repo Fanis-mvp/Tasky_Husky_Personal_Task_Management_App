@@ -9,7 +9,7 @@ export default function TaskList(props) {
     <ul clasName="main">
       {tasks.map((task, taskIndex) => {
         return (
-            <TaskSlot key={taskIndex}>
+            <TaskSlot {...props} key={taskIndex} taskIndex={taskIndex}>
                 <p>{task}</p>
             </TaskSlot>
         );

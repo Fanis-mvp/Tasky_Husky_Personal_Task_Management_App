@@ -12,6 +12,7 @@ export default function AddTask(props) {
       <button
         onClick={() => {
           handleAddTask(taskValue);
+          setTaskValue('')
         }}
       >
         Add Task

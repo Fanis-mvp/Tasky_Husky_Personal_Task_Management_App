@@ -13,10 +13,21 @@ function App() {
     setTasks(newTaskList);
   }
 
+  function handleDeleteTask (index) {
+    const newTaskList = tasks.filter((task, taskIndex) => {
+      return taskIndex !== index;
+    })
+    setTasks(newTaskList);
+  }
+
+  function handleEditTask (taskIndex) {
+
+  }
+
   return (
     <>
       <AddTask handleAddTask={handleAddTask} />
-      <TaskList tasks={tasks}/>
+      <TaskList handleDeleteTask={handleDeleteTask} tasks={tasks}/>
     </>
   )
 }
