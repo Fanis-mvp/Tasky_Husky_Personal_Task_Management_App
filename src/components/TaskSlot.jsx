@@ -1,7 +1,14 @@
-import React from 'react'
+import React from "react";
 
-export default function TaskSlot() {
+export default function TaskSlot(props) {
+const { children } = props;
   return (
-    <div>TaskSlot</div>
-  )
+    <li className="taskItem">
+        {children}
+      <div className= 'actionsContainer'>
+        <i className="fa-regular fa-pen-to-square"></i>
+        <i className="fa-regular fa-trash-can"></i>
+      </div>
+    </li>
+  );
 }
