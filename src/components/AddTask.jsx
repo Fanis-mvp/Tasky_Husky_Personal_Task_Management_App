@@ -2,8 +2,10 @@ import React from "react";
 import { useState } from "react";
 
 export default function AddTask(props) {
-  const { handleAddTask } = props;
-  const [taskValue, setTaskValue] = useState('')
+  const { handleAddTask, taskValue, setTaskValue } = props;
+
+  
+  
   return (
     <header>
       <input type="text" value={taskValue} onChange={(event) => {

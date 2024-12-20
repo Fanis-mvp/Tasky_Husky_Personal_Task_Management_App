@@ -1,12 +1,14 @@
 import React from "react";
 
 export default function TaskSlot(props) {
-  const { children, handleDeleteTask, taskIndex } = props;
+  const { children, handleDeleteTask, taskIndex, handleEditTask } = props;
   return (
     <li className="taskItem">
       {children}
       <div className="actionsContainer">
-        <button>
+        <button onClick={() => {
+            handleEditTask(taskIndex)
+        }} >
           <i className="fa-regular fa-pen-to-square"></i>
         </button>
         <button onClick={() => {
