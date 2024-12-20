@@ -3,14 +3,15 @@ import AddTask from "./components/AddTask";
 import TaskList from "./components/TaskList";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    { id: 1, title: "Task 1", description: "Description 1", done: false },
-    { id: 2, title: "Task 2", description: "Description 2", done: false },
-    { id: 3, title: "Task 3", description: "Description 3", done: false },
-  ]);
-
+  const [tasks, setTasks] = useState([]);
   const [taskTitle, setTaskTitle] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
+  const [filter, setFilter] = useState('All')
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "completed") return task.done;
+    if (filter === "pending") return !task.done;
+    return true;
+  });
 
   function persistData(newList) {
     localStorage.setItem("tasks", JSON.stringify({ tasks: newList }));
@@ -21,7 +22,7 @@ function App() {
       id: Date.now(),
       title: taskTitle,
       description: taskDescription,
-      completed: false,
+      done: false,
     };
 
     const newTaskList = [...tasks, newTask];
@@ -45,6 +46,18 @@ function App() {
     }
   }
 
+  function handleToggleTaskDone(taskId) {
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId ? { ...task, done: !task.done } : task
+    );
+    persistData(updatedTasks);
+    setTasks(updatedTasks);
+  }
+
+  function handleFilterChange(event) {
+    setFilter(event.target.value)
+  }
+
   useEffect(() => {
     if (!localStorage) return;
 
@@ -56,6 +69,14 @@ function App() {
 
   return (
     <>
+    <header>
+        <select value={filter} onChange={handleFilterChange}>
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="pending">Pending</option>
+        </select>
+      </header>
+
       <AddTask
         handleAddTask={handleAddTask}
         taskTitle={taskTitle}
@@ -65,8 +86,9 @@ function App() {
       />
       <TaskList
         handleDeleteTask={handleDeleteTask}
-        tasks={tasks}
+        tasks={filteredTasks}
         handleEditTask={handleEditTask}
+        handleToggleTaskDone={handleToggleTaskDone}
       />
     </>
   );
