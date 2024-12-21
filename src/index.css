@@ -202,13 +202,8 @@ font-size: 1.6em;
 
 /*Responsiveness*/
 
-@media (min-width: 640px) {
-  header button,
-  header input {
-    font-size: 1.2em;
-  }
-
-  p {
-    font-size: 1.2em;
+@media (max-width: 640px) {
+  * {
+    font-size: 15px;
   }
 }
