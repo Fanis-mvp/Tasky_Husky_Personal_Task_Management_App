@@ -1,8 +1,7 @@
-# React + Vite
+This is Tasky Husky, 
+your personal Task Management application!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+You can add, edit and delete tasks.
+You can also filter your tasks by pendig or completed.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Feel free to use it here:
