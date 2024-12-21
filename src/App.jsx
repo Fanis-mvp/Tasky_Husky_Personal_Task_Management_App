@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import AddTask from "./components/AddTask";
 import TaskList from "./components/TaskList";
+import TaskFilter from "./components/TaskFilter";
 
 function App() {
   const [tasks, setTasks] = useState([]);
   const [taskTitle, setTaskTitle] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
-  const [filter, setFilter] = useState('All')
+  const [filter, setFilter] = useState("All");
   const filteredTasks = tasks.filter((task) => {
     if (filter === "completed") return task.done;
     if (filter === "pending") return !task.done;
@@ -27,7 +28,11 @@ function App() {
 
     const newTaskList = [...tasks, newTask];
     persistData(newTaskList);
-    setTasks(newTaskList);
+    if (taskTitle) {
+      setTasks(newTaskList);
+    } else {
+      alert("Task Title is mandatory!");
+    }
   }
 
   function handleDeleteTask(taskId) {
@@ -55,7 +60,7 @@ function App() {
   }
 
   function handleFilterChange(event) {
-    setFilter(event.target.value)
+    setFilter(event.target.value);
   }
 
   useEffect(() => {
@@ -69,14 +74,6 @@ function App() {
 
   return (
     <>
-    <header>
-        <select value={filter} onChange={handleFilterChange}>
-          <option value="all">All</option>
-          <option value="completed">Completed</option>
-          <option value="pending">Pending</option>
-        </select>
-      </header>
-
       <AddTask
         handleAddTask={handleAddTask}
         taskTitle={taskTitle}
@@ -84,6 +81,9 @@ function App() {
         taskDescription={taskDescription}
         setTaskDescription={setTaskDescription}
       />
+
+      <TaskFilter filter={filter} handleFilterChange={handleFilterChange} />
+
       <TaskList
         handleDeleteTask={handleDeleteTask}
         tasks={filteredTasks}

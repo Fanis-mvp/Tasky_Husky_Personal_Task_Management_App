@@ -1,0 +1,214 @@
+* {
+  font-family: ;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #3F357A;
+  font-size: 20px;
+}
+
+body {
+  background: #fffcec;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  min-height: 100vh;
+  padding-top: 3rem;
+  gap: 1rem;
+  width: 100%;
+  max-width: 45rem;
+}
+
+/*Add Task*/
+
+header {
+  display: flex;
+  justify-content: space-between; 
+  border: solid #8f86c4;
+  border-radius: 0.7rem;
+  padding: 0.2rem;
+}
+
+header:hover {
+  border: solid #fffcec;
+}
+
+.titleDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  width: 85%; 
+}
+
+.title {
+  height: 2rem;
+  font-family: "Prompt", serif;
+  font-weight: 500;
+  border-radius: 0.7rem;
+  padding: 0.7rem;
+  border: none;
+  outline: none;
+  background-color: #e4e0c2;
+}
+
+.description {
+  font-family: "Comic Neue", serif;
+  font-size: 1rem;
+  height: 1.7rem;
+  border-radius: 0.7rem;
+  padding: 0.7rem;
+  border: none;
+  outline: none;
+  background-color: #eeebd2;
+}
+
+.addButton {
+  color: #fffcec;
+  align-self: center; 
+  width: 15%;
+  border-radius: 0.7rem;
+  padding: 0.7rem;
+  border: none;
+  background-color: #3F357A;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px rgb(136, 105, 105);
+}
+
+.addButton:hover {
+  opacity: 0.6;
+}
+
+.addButton:active {
+  translate: 2px 2px;
+  box-shadow: none;
+}
+
+/* END Add Task*/
+
+/*Filter*/
+
+.filterContainer {
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.7rem;
+  border: none;
+  width: 20%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.filterContainer:hover {
+  opacity: 0.7;
+}
+
+/* END Filter*/
+
+/*Task list*/
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Task Slots*/
+
+.titleAndDescription {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+
+}
+.taskItem {
+  display: flex;
+  justify-content: space-between; 
+  padding: 0.7rem;
+  border-radius: 0.7rem;
+  background: #edeafa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+}
+
+.taskItem:hover {
+  background: #f9f9f9;
+}
+
+.itemTitle {
+  font-size: 1.5rem;
+  width: 70%;
+  font-family: "Prompt", serif;
+  font-weight: 500;
+}
+
+.itemDescription {
+  font-size: 1.1rem;
+  width: 70%;
+  font-family: "Comic Neue", serif;
+}
+
+.taskItem.done {
+  opacity: 0.6;
+  background-color: #777;
+}
+
+.taskItem.done p {
+  text-decoration: line-through;
+}
+
+.actionsContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.7rem;
+  width: 30%;
+}
+
+.actionsContainer button {
+  border-radius: 0.7rem;
+  border: solid 1px;
+  background-color: #fffcec;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  padding: 0.3rem 0.6rem;
+  box-shadow: 1px 1px 2px rgb(136, 105, 105);
+}
+
+.actionsContainer button:hover {
+  opacity: 0.6;
+  translate: -0.7px -0.7px;
+}
+
+.actionsContainer button:active {
+  translate: 2px 2px;
+  box-shadow: none;
+}
+
+.doneButton {
+font-size: 1.6em;
+}
+
+.editButton {
+  font-size: 1.3em;
+}
+
+.deleteButton {
+  font-size: 1.3em;
+}
+
+/* END Task List & Task Slots*/
+
+/*Responsiveness*/
+
+@media (min-width: 640px) {
+  header button,
+  header input {
+    font-size: 1.2em;
+  }
+
+  p {
+    font-size: 1.2em;
+  }
+}

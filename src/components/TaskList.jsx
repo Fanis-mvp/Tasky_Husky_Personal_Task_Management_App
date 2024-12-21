@@ -5,15 +5,15 @@ export default function TaskList(props) {
     const { tasks, handleToggleTaskDone } = props;
   
     return (
-      <ul className="main">
+      <ul className="taskList">
         {tasks.map((task) => (
           <TaskSlot
             {...props}
             key={task.id}
             task={task}
           >
-            <p>{task.title}</p>
-            <p>{task.description}</p>
+            <p className="itemTitle">{task.title}</p>
+            <p className="itemDescription">{task.description}</p>
           </TaskSlot>
         ))}
       </ul>

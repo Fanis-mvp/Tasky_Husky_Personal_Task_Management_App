@@ -3,18 +3,21 @@ export default function TaskSlot(props) {
   
     return (
       <li className={`taskItem ${task.done ? 'done' : ''}`}>
+        <div className="titleAndDescription">
         {children}
+        </div>
         <div className="actionsContainer">
-          <button onClick={() => handleToggleTaskDone(task.id)}>
-            {task.done ? "Undo" : "Done"}
+          <button className="doneButton" onClick={() => handleToggleTaskDone(task.id)}>
+            {task.done ? "☑" : "☐"}
           </button>
-          <button onClick={() => handleEditTask(task.id)}>
+          <button className="editButton" onClick={() => handleEditTask(task.id)}>
             <i className="fa-regular fa-pen-to-square"></i>
           </button>
-          <button onClick={() => handleDeleteTask(task.id)}>
+          <button className="deleteButton" onClick={() => handleDeleteTask(task.id)}>
             <i className="fa-regular fa-trash-can"></i>
           </button>
         </div>
+
       </li>
     );
   }
