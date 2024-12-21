@@ -1,5 +1,5 @@
 export default function TaskSlot(props) {
-    const { children, handleDeleteTask, handleEditTask, handleToggleTaskDone, taskIndex, task } = props;
+    const { children, handleDeleteTask, handleEditTask, handleToggleTaskDone, task } = props;
   
     return (
       <li className={`taskItem ${task.done ? 'done' : ''}`}>

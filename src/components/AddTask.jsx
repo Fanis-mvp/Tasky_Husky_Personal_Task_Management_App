@@ -5,8 +5,6 @@ export default function AddTask(props) {
       setTaskTitle,
       taskDescription,
       setTaskDescription,
-      filterValue,
-      setFilterValue,
     } = props;
   
     return (
@@ -17,14 +15,14 @@ export default function AddTask(props) {
             type="text"
             value={taskTitle}
             onChange={(event) => setTaskTitle(event.target.value)}
-            placeholder="Add Task Title..."
+            placeholder="Task Title..."
           />
           <input
           className="description"
             type="text"
             value={taskDescription}
             onChange={(event) => setTaskDescription(event.target.value)}
-            placeholder="Add Task Description..."
+            placeholder="Task Description..."
           />
         </div>
   

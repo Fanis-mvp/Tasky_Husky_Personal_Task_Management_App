@@ -2,7 +2,7 @@ import TaskSlot from "./TaskSlot";
 
 
 export default function TaskList(props) {
-    const { tasks, handleToggleTaskDone } = props;
+    const { tasks } = props;
   
     return (
       <ul className="taskList">

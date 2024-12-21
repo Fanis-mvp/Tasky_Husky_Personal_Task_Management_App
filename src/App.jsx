@@ -31,7 +31,7 @@ function App() {
     if (taskTitle) {
       setTasks(newTaskList);
     } else {
-      alert("Task Title is mandatory!");
+      alert("You cannot add a task without adding a Title.");
     }
   }
 
